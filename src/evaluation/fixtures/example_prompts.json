@@ -1,0 +1,132 @@
+[
+  {
+    "id": "p1",
+    "description": "Emergency fund, medium risk, 12 month horizon",
+    "slots": {
+      "task_definition": {"summary": "Build emergency fund", "goal": "3 months expenses"},
+      "personal_summary": {
+        "age_range": "25-34",
+        "employment_status": "employed",
+        "country_region": "IN",
+        "dependents": "0",
+        "risk_tolerance": "medium",
+        "notes": "synthetic"
+      },
+      "financial_requirements": {
+        "monthly_budget_hint": "5000",
+        "time_horizon_months": "12",
+        "liquidity_needs": "high",
+        "constraints": "no crypto"
+      },
+      "financial_preferences": {
+        "ethical_constraints": "none",
+        "product_preferences": "index funds",
+        "automation_comfort": "high"
+      }
+    }
+  },
+  {
+    "id": "p2",
+    "description": "Retirement, long horizon, low liquidity need",
+    "slots": {
+      "task_definition": {"summary": "Retirement planning", "goal": "Long-term growth"},
+      "personal_summary": {
+        "age_range": "35-44",
+        "employment_status": "employed",
+        "country_region": "US",
+        "dependents": "2",
+        "risk_tolerance": "medium",
+        "notes": "synthetic"
+      },
+      "financial_requirements": {
+        "monthly_budget_hint": "800 USD",
+        "time_horizon_months": "240",
+        "liquidity_needs": "low",
+        "constraints": "tax-advantaged accounts only"
+      },
+      "financial_preferences": {
+        "ethical_constraints": "ESG optional",
+        "product_preferences": "target-date funds",
+        "automation_comfort": "medium"
+      }
+    }
+  },
+  {
+    "id": "p3",
+    "description": "Credit card debt, feasible payoff",
+    "slots": {
+      "task_definition": {"summary": "Pay off credit card debt", "goal": "Clear debt"},
+      "personal_summary": {
+        "age_range": "30-39",
+        "employment_status": "employed",
+        "country_region": "AU",
+        "dependents": "0",
+        "risk_tolerance": "low",
+        "notes": "synthetic"
+      },
+      "financial_requirements": {
+        "monthly_budget_hint": "1000",
+        "time_horizon_months": "12",
+        "liquidity_needs": "medium",
+        "constraints": "no new loans"
+      },
+      "financial_preferences": {
+        "ethical_constraints": "none",
+        "product_preferences": "cash repayment",
+        "automation_comfort": "manual"
+      }
+    }
+  },
+  {
+    "id": "p4",
+    "description": "Credit card debt, infeasible payoff",
+    "slots": {
+      "task_definition": {"summary": "Pay off credit card debt", "goal": "Clear debt"},
+      "personal_summary": {
+        "age_range": "35-44",
+        "employment_status": "employed",
+        "country_region": "AU",
+        "dependents": "1",
+        "risk_tolerance": "low",
+        "notes": "synthetic"
+      },
+      "financial_requirements": {
+        "monthly_budget_hint": "600",
+        "time_horizon_months": "12",
+        "liquidity_needs": "high",
+        "constraints": "maintain emergency savings"
+      },
+      "financial_preferences": {
+        "ethical_constraints": "none",
+        "product_preferences": "safe options",
+        "automation_comfort": "manual"
+      }
+    }
+  },
+  {
+    "id": "p5",
+    "description": "Incomplete financial input",
+    "slots": {
+      "task_definition": {"summary": "Save money", "goal": "General savings"},
+      "personal_summary": {
+        "age_range": "",
+        "employment_status": "employed",
+        "country_region": "IN",
+        "dependents": "",
+        "risk_tolerance": "medium",
+        "notes": "synthetic"
+      },
+      "financial_requirements": {
+        "monthly_budget_hint": "",
+        "time_horizon_months": "",
+        "liquidity_needs": "",
+        "constraints": ""
+      },
+      "financial_preferences": {
+        "ethical_constraints": "",
+        "product_preferences": "",
+        "automation_comfort": ""
+      }
+    }
+  }
+]

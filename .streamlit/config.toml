@@ -1,0 +1,3 @@
+# Default app appearance: light theme (users can still change via ⋮ → Settings → Theme).
+[theme]
+base = "light"

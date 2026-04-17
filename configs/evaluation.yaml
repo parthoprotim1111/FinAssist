@@ -1,0 +1,11 @@
+fixtures_path: "src/evaluation/fixtures/example_prompts.json"
+output_csv: "reports/eval_results.csv"
+techniques:
+  - few_shot
+  - zero_shot
+  - cot
+metrics:
+  schema_valid_weight: 1.0
+  has_assumptions_weight: 0.5
+  has_caveat_weight: 0.5
+  max_latency_seconds_warn: 120

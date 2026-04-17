@@ -1,0 +1,83 @@
+Metadata-Version: 2.4
+Name: assignment-2
+Version: 0.1.0
+Summary: LLM-driven personal financial assistant (university project)
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: streamlit>=1.28.0
+Requires-Dist: torch>=2.1.0
+Requires-Dist: transformers>=4.36.0
+Requires-Dist: accelerate>=0.25.0
+Requires-Dist: peft>=0.7.0
+Requires-Dist: bitsandbytes>=0.41.0
+Requires-Dist: pydantic>=2.5.0
+Requires-Dist: pyyaml>=6.0.1
+Requires-Dist: jinja2>=3.1.2
+Requires-Dist: pandas>=2.1.0
+Requires-Dist: matplotlib>=3.8.0
+Requires-Dist: plotly>=5.18.0
+Requires-Dist: langdetect>=1.0.9
+Requires-Dist: trl>=0.7.0
+Requires-Dist: datasets>=2.16.0
+Requires-Dist: huggingface_hub>=0.20.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+
+# LLM-Driven Personal Financial Assistant
+
+Educational prototype: a Streamlit app that guides users through a structured dialogue (task, personal context, requirements, preferences) and produces **personalized, justified** financial-style recommendations using a **local** Hugging Face model with optional **LoRA (PEFT)** adapters.
+
+**Disclaimer:** This is not financial advice. It is a coursework demonstration. Do not enter real account numbers or sensitive identifiers.
+
+## Requirements
+
+- Python 3.10+
+- NVIDIA GPU recommended; CPU/MPS possible with smaller models and longer latency
+- ~8 GB+ VRAM for 4-bit inference of small instruct models (1B–3B class); less if using CPU offload
+
+## Setup
+
+```bash
+cd assignment-2
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+pip install -e .
+```
+
+## Run the app
+
+From the project root (after `pip install -e .`):
+
+```bash
+streamlit run src/app/streamlit_app.py
+```
+
+Pages in the sidebar: **Chat** (duplicate of Home), **Benchmarks** (model × technique comparison), **Data & Exports** (consent + anonymized JSON export).
+
+## Primary vs comparison backends
+
+- **Primary / alt:** `Transformers` + optional `PEFT` LoRA, local weights (`src/llm/hf_local.py`). The Benchmarks page uses the same backends as batch eval (`mock`, HF primary, HF alt).
+
+## LoRA training
+
+1. Place or generate JSONL under `data/processed/` (see `configs/training.yaml`).
+2. Run:
+
+```bash
+python scripts/train_lora.py --config configs/training.yaml
+```
+
+## Evaluation and report assets
+
+```bash
+python -m evaluation.run_eval
+python scripts/generate_report_assets.py
+```
+
+## Data collection
+
+Users may opt in to export **anonymized** session data from the Data & Exports page. No real PII should be used in demos.
+
+## License
+
+Project code: coursework use. Third-party models and datasets are subject to their respective licenses.

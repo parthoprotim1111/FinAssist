@@ -1,0 +1,12 @@
+# UI and LLM locale (English only)
+locale_prompt: "Respond in clear, professional English."
+
+# Required slots before recommendations (keys match dialogue.slots)
+required_for_recommend:
+  - task_definition
+  - personal_summary
+  - financial_requirements
+  - financial_preferences
+
+# Form fallback after N failed JSON extractions
+extraction_retry_limit: 2

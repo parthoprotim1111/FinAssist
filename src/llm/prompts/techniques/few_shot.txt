@@ -1,0 +1,9 @@
+Technique: few-shot style.
+
+Follow the required JSON schema exactly.
+Use the same field meanings and output style expected by the schema.
+Use only the real user profile provided in this prompt.
+Do not copy any example wording, labels, or numbers.
+Return exactly one valid JSON object and nothing else.
+Every required field must be present and non-empty.
+Arrays must satisfy the required item counts.

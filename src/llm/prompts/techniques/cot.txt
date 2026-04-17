@@ -1,0 +1,9 @@
+Technique: chain-of-thought (internal only).
+
+Reason silently before answering.
+Use the real user profile only.
+Do not reveal your reasoning.
+Return exactly one valid JSON object and nothing else.
+Every required field must be present and non-empty.
+Arrays must satisfy the required item counts.
+Do not invent facts, numbers, or assumptions beyond the provided profile unless clearly marked as a financial assumption derived from user data.

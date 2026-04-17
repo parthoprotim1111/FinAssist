@@ -1,0 +1,29 @@
+System: {{ locale_prompt }}
+Phase: {{ state }}
+
+User message (extract from this; highest priority):
+"""
+{{ user_message }}
+"""
+
+Reply with one JSON object only. No markdown, no code fences, no text before or after the JSON.
+
+Required shape: {"slot_updates":{...}}. Put fields under nested groups: task_definition, personal_summary, financial_requirements, financial_preferences (not flat keys at the top).
+
+Example fragment (structure only): {"slot_updates":{"task_definition":{"goal":"pay off credit cards"},"personal_summary":{"risk_tolerance":"low"}}}
+
+Groups and keys:
+- task_definition: summary, goal
+- personal_summary: age_range, employment_status, country_region, dependents, risk_tolerance, notes
+- financial_requirements: monthly_budget_hint, time_horizon_months, liquidity_needs, constraints
+- financial_preferences: ethical_constraints, product_preferences, automation_comfort
+
+Rules:
+- Extract from any group implied by the user message; phase only controls the next question, not what you may extract.
+- Include every field you can infer from the user message; do not return an empty slot_updates if the user gave any relevant detail.
+- If the user corrects a value, output the new value so it replaces the old one.
+- Normalize when obvious: low/medium/high for risk_tolerance; dependents as "0","1","2",…; self-employed for gig/freelance; copy time horizon in short text (e.g. "12 months", "2 years").
+- Omit a key only when the user gave no usable hint for it.
+
+Known slots JSON (for context; merge your updates into these groups):
+{{ slots_json }}

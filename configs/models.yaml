@@ -1,0 +1,35 @@
+# Primary backend: always Transformers + optional PEFT (main app).
+primary:
+  base_model_id: "Qwen/Qwen2.5-1.5B-Instruct"
+  adapter_path: null  # set to path after LoRA training, e.g. "models/lora_adapter"
+  load_in_4bit: true
+  load_in_8bit: false
+  max_new_tokens: 512
+  max_input_tokens: 2048
+  torch_dtype: "bfloat16"  # fallback to float16 if unsupported
+
+# Second HF checkpoint for A/B comparison (benchmarks, run_eval --backend hf_alt).
+# Phi-3-mini is strong enough for meaningful quality/latency comparison vs Qwen at similar scale.
+# For quick smoke tests on very tight VRAM, you can temporarily point alt_base_model_id to a smaller
+# chat model (e.g. TinyLlama/TinyLlama-1.1B-Chat-v1.0); that is not the default comparison target.
+comparison:
+  enable_alt_hf: true
+  alt_base_model_id: "microsoft/Phi-3-mini-4k-instruct"
+  alt_adapter_path: null
+  load_in_4bit: true
+
+# Low-VRAM mode toggles used by the app sidebar
+low_vram:
+  max_new_tokens: 256
+  # Extraction prompt must fit user message + rules + slots; avoid truncating the user turn.
+  max_input_tokens: 1536
+
+# Recommendation step only (long JSON) — overrides default max_new_tokens for generate_recommendations
+recommendation:
+  max_new_tokens: 1536
+  low_vram_max_new_tokens: 768
+  # Long prompt (profile + calc + schema); avoid cutting off the JSON contract at the end of recommend.jinja2
+  max_input_tokens: 4096
+  low_vram_max_input_tokens: 3072
+  # When the prompt still exceeds max_input_tokens, truncate from the left so the suffix (JSON schema) is kept
+  truncation_side: "left"

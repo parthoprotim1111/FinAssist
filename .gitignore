@@ -1,0 +1,19 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.env
+*.log
+reports/eval_results.*
+reports/*.png
+reports/*.html
+data/processed/*.jsonl
+!data/processed/.gitkeep
+models/
+*.safetensors
+wandb/
+
+# Local debug NDJSON (Cursor / agent sessions)
+debug-*.log

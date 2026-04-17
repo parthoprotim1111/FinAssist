@@ -1,0 +1,11 @@
+prompt_id,model,technique,latency_s,schema_valid,score
+p1,mock,few_shot,0.03642309999850113,True,2.0
+p2,mock,few_shot,0.03301590000046417,True,2.0
+p3,mock,few_shot,0.027408899997681146,True,2.0
+p4,mock,few_shot,0.026509499999519903,True,2.0
+p5,mock,few_shot,0.02690230000007432,True,2.0
+p1,mock,zero_shot,0.027699700000084704,True,2.0
+p2,mock,zero_shot,0.026724300001660595,True,2.0
+p3,mock,zero_shot,0.025386900000739843,True,2.0
+p4,mock,zero_shot,0.025604200000088895,True,2.0
+p5,mock,zero_shot,0.025175499999022577,True,2.0

@@ -1,0 +1,8 @@
+Technique: zero-shot.
+
+Answer directly from the provided user profile.
+Use only the real values in this prompt.
+Return exactly one valid JSON object and nothing else.
+Every required field must be present and non-empty.
+Arrays must satisfy the required item counts.
+Do not invent values or extra context.
